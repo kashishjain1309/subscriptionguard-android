@@ -49,11 +49,9 @@ class AuthRepository(context: Context) {
             if (refreshToken != null) {
                 api.logout(RefreshTokenRequest(refreshToken))
             }
+            tokenManager.clearTokens()
         }
         catch (e: Exception) {
-        }
-        finally {
-            tokenManager.clearTokens()
         }
     }
 }
